@@ -1,4 +1,8 @@
+const mongoose = require('mongoose')
 const express = require('express');
+
+// connect database
+require('./config/db')()
 
 const app = express();
 
