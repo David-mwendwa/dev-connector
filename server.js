@@ -6,6 +6,9 @@ require('./config/db')()
 
 const app = express();
 
+// Init middleware
+app.use(express.json({ limit: '10kb' }));
+
 app.get('/', (req, res) => res.send('API Running'))
 
 // Define routes
