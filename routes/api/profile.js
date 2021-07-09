@@ -34,7 +34,7 @@ router.post(
     auth,
     [
       check('status', 'Status is required').not().isEmpty(),
-      check('skills', 'skills is required').not().isEmpty(),
+      check('skills', 'Skills is required').not().isEmpty(),
     ],
   ],
   async (req, res) => {
@@ -79,7 +79,7 @@ router.post(
     if (instagram) profileFields.social.instagram = instagram;
 
     try {
-      let profile = await Profile.findOne({ user: req.user.id });
+      let profile =  await Profile.findOne({ user: req.user.id });
       // Update
       if (profile) {
         profile = await Profile.findOneAndUpdate(
@@ -91,7 +91,7 @@ router.post(
       }
 
       // Create
-      profile = new Profile({ profileFields });
+      profile = new Profile(profileFields);
 
       await profile.save();
       res.json(profile);

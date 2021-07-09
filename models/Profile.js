@@ -8,7 +8,7 @@ const ProfileSchema = new mongoose.Schema({
   company: {
     type: String,
   },
-  websites: {
+  website: {
     type: String,
   },
   location: {
@@ -16,6 +16,7 @@ const ProfileSchema = new mongoose.Schema({
   },
   status: {
     type: String,
+    required: true
   },
   skills: {
     type: [String],
