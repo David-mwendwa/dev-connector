@@ -19,7 +19,7 @@ const PostSchema = new Schema({
   likes: [
     {
       user: {
-        type: Schema.types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'User',
       },
     },
@@ -27,7 +27,7 @@ const PostSchema = new Schema({
   comments: [
     {
       user: {
-        type: Schema.types.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'User',
       },
       text: {
