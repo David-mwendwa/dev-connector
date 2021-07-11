@@ -1,13 +1,14 @@
 @import '../../../variables/variables.scss';
 
 .navigation {
-  background-image: linear-gradient(to right top, rgba(252, 84, 4, .6), rgb(249, 176, 6));
-  border-radius: 2rem;
+  //background-image: linear-gradient(to right top, rgba(252, 84, 4, .6), rgb(249, 176, 6));
+  background-image: linear-gradient(to right top, rgba(252, 250, 249, 0.6), rgba(252, 251, 248, .5));
   display: flex;
   justify-content: space-between;
+  border-radius: 3px;
   align-items: center;
   padding: 1rem 1.5rem;
-
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
 
   &__logo {
     //font-family: 'Black Ops One', cursive;
@@ -17,7 +18,7 @@
     color: black;
     
     span {
-      color: yellow;
+      color: $color-orange-dark-1;
     }
   }
 

@@ -1,0 +1,46 @@
+@import '../../../variables/variables.scss';
+
+.landing {
+  background-image: linear-gradient(to right top, rgba(252, 250, 249, 0.6), rgba(252, 251, 248, .5));
+  margin-top: 2rem;
+  border-radius: 3px;
+  flex: 1;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+
+  &__para {
+    text-align: center;
+    font-size: 1.6rem;
+    padding: 3rem 0;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+
+  button {
+    background-image: linear-gradient(to right top, rgba(252, 84, 4, .6), rgb(249, 176, 6));
+    color: white;
+    padding: 1rem 3rem;
+    border-radius: 3px;
+    border: 0;
+    box-shadow: 0 1rem 6rem rgba(0, 0, 0, .3);
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: 0 5px 10px rgba(0, 0, 0, .3);
+    }
+
+    &:active {
+      transform: translateY(-2px);
+      box-shadow: 0 2rem 6rem rgba(0, 0, 0, .3);
+    }
+  }
+
+}
