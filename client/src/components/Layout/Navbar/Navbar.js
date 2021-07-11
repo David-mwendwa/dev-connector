@@ -1,8 +1,10 @@
+import './Navbar.scss'
+
 const Navbar = () => {
   return (
-    <nav>
-      <h1>devConnector</h1>
-      <ul>
+    <nav className="navigation">
+      <h1 className='navigation__logo'><span>i</span>Techies</h1>
+      <ul className='navigation__links'>
         <li>
           <a href='/'>Developers</a>
         </li>

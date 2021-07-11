@@ -1,0 +1,40 @@
+@import '../../../variables/variables.scss';
+
+.navigation {
+  background-image: linear-gradient(to right top, rgba(252, 84, 4, .6), rgb(249, 176, 6));
+  border-radius: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+
+
+  &__logo {
+    //font-family: 'Black Ops One', cursive;
+    //font-family: 'Fredericka the Great', cursive;
+    font-family: 'Redressed', cursive;
+    font-size: 2rem;
+    color: black;
+    
+    span {
+      color: yellow;
+    }
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 50%;
+
+    li {
+      list-style: none;
+
+      a {
+        text-decoration: none;
+        color: inherit;
+        font-size: 1.5rem;
+      }
+    }
+  }
+}
