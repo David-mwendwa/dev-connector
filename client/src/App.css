@@ -14,8 +14,14 @@ html {
 }
 
 body {
+  min-height: 100vh;
   font-family: 'Kanit', sans-serif;
   color: #6D5D4B;
   font-weight: 300;
   line-height: 1.6;
+  background-image: linear-gradient(to right top, #FC5404, #F9B208);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
