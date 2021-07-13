@@ -1,15 +1,13 @@
 import React, { Fragment } from 'react';
-
-import Layout from './Layout/Layout';
-
 import './App.css';
+import Landing from './components/Layout/Landing';
+import Navbar from './components/Layout/Navbar';
 
 const App = () => {
   return (
     <Fragment className='App'>
-      <Layout />
-      <div className="circle1"></div>
-      <div className='circle2'></div>
+      <Navbar />
+      <Landing />
     </Fragment>
   );
 };
