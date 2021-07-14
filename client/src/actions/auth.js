@@ -20,7 +20,7 @@ export const register =
 
       dispatch({
         type: REGISTER_SUCCESS,
-        payload: res.dtata,
+        payload: res.data,
       });
     } catch (err) {
       const errors = err.response.data.errors;
