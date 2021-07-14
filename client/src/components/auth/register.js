@@ -25,6 +25,7 @@ const Register = ({ setAlert, register }) => {
       setAlert('passwords dont match', 'danger');
     } else {
       register({ name, email, password });
+      setFormData({ name: '', email: '', password: '', password2: '' });
     }
   };
 
