@@ -60,7 +60,7 @@ export const createProfile =
   };
 
 // Add Experience
-export const addExperience = (formData, history) => async dispatch => {
+export const addExperience = (formData, history) => async (dispatch) => {
   try {
     const config = {
       headers: {
@@ -90,11 +90,10 @@ export const addExperience = (formData, history) => async dispatch => {
       payload: { msg: err.response.statusText, status: err.response.status },
     });
   }
-}
-
+};
 
 // Add Education
-export const addEducation = (formData, history) => async dispatch => {
+export const addEducation = (formData, history) => async (dispatch) => {
   try {
     const config = {
       headers: {
@@ -110,7 +109,7 @@ export const addEducation = (formData, history) => async dispatch => {
     });
 
     dispatch(setAlert('Education added', 'success'));
-    
+
     history.push('/dashboard');
   } catch (err) {
     const errors = err.response.data.errors;
@@ -124,4 +123,23 @@ export const addEducation = (formData, history) => async dispatch => {
       payload: { msg: err.response.statusText, status: err.response.status },
     });
   }
-}
+};
+
+// Delete experience
+export const deleteExperience = (id) => async (dispatch) => {
+  try {
+    const res = await axios.delete(`/api/profile/experience/${id}`);
+
+    dispatch({
+      type: UPDATE_PROFILE,
+      payload: res.data,
+    });
+
+    dispatch(setAlert('Experience removed', 'success'));
+  } catch (err) {
+    dispatch({
+      type: PROFILE_ERROR,
+      payload: { msg: err.response.statusText, status: err.response.status },
+    });
+  }
+};
