@@ -46,3 +46,4 @@ const postSchema = new Schema({
   },
 });
 
+//TODO: fix this model export

@@ -145,8 +145,9 @@ router.get('/user/:user_id', async (req, res) => {
 // @access  Private
 router.delete('/', auth, async (req, res) => {
   try {
+    //TODO: fix the Post model
     // Remove users posts
-    await Post.deleteMany({ user: req.user.id });
+    //await Post.deleteMany({ user: req.user.id });
 
     // Remoce profile
     await Profile.findOneAndRemove({ user: req.user.id });
