@@ -15,6 +15,7 @@ import {
 export const getCurrentProfile = () => async (dispatch) => {
   try {
     const res = await axios.get('/api/profile/me');
+    console.log('me', res.data)
 
     dispatch({
       type: GET_PROFILE,
@@ -34,6 +35,7 @@ export const getProfiles = () => async (dispatch) => {
 
   try {
     const res = await axios.get('/api/profile');
+    console.log('profiles res',res.data)
 
     dispatch({
       type: GET_PROFILES,
