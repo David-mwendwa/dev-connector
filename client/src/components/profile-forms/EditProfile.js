@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createProfile, getCurrentProfile } from '../../actions/profile';
 
+
+//TODO: edit functinality is not working in the browser
 const EditProfile = ({
   profile: { profile, loading },
   createProfile,

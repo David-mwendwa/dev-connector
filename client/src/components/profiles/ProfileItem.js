@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 //TODO: ul parsed but not rendered in the DOM - line 29
-//TODO: user returns only an id - name & avatar absent!!
+//TODO: user returns only an id - name & avatar absent!! - { _id, name, avatar }
 const ProfileItem = ({
   profile: {
-    user: { _id, name, avatar },
+    user,
     status,
     company,
     location,
@@ -15,14 +15,14 @@ const ProfileItem = ({
 }) => {
   return (
     <div className='profile bg-light'>
-      <img src={avatar} alt='' className='round-img' />
+      {/* <img src={avatar} alt='' className='round-img' /> */}
       <div>
-        <h2>{name}</h2>
+        {/* <h2>{name}</h2> */}
         <p>
           {status} {company && <span> at {company}</span>}
         </p>
         <p className='my-1'>{location && <span>{location}</span>}</p>
-        <Link to={`/profile/${_id}`} className='btn btn-primary'>
+        <Link to={`/profile/${user}`} className='btn btn-primary'>
           View Profile
         </Link>
       </div>
