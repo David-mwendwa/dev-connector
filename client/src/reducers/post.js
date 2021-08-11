@@ -1,4 +1,10 @@
-import { GET_POSTS, POST_ERROR, UPDATE_LIKES, DELETE_POST } from '../actions/types';
+import {
+  GET_POSTS,
+  POST_ERROR,
+  UPDATE_LIKES,
+  DELETE_POST,
+  ADD_POST,
+} from '../actions/types';
 
 const initialState = {
   posts: [],
@@ -17,12 +23,18 @@ const postReducer = (state = initialState, action) => {
         posts: payload,
         loading: false,
       };
+    case ADD_POST:
+      return {
+        ...state,
+        posts: [...state.posts, payload],
+        loading: false,
+      };
     case DELETE_POST:
       return {
         ...state,
-        post: state.posts.filter(post => post._id !== payload),
-        payload: false
-      }
+        post: state.posts.filter((post) => post._id !== payload),
+        payload: false,
+      };
     case POST_ERROR:
       return {
         ...state,
@@ -35,10 +47,10 @@ const postReducer = (state = initialState, action) => {
         posts: state.posts.map((post) =>
           post._id === payload.id ? { ...post, likes: payload.likes } : post
         ),
-        loading: false
+        loading: false,
       };
     default:
-      return state; 
+      return state;
   }
 };
 
