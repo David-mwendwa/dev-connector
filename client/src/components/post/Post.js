@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Spinner from '../Layout/Spinner';
 import PostItem from '../posts/PostItem';
+import CommentItem from '../post/CommentItem';
 import { getPost } from '../../actions/post';
 import CommentForm from './CommentForm';
 
@@ -16,6 +17,9 @@ const Post = ({ getPost, post: { post, loading }, match }) => {
     <Link to="/posts" className="btn">Back to posts</Link>
     <PostItem post={post} showActions={false} />
     <CommentForm postId={post._id} />
+    <div>
+      {post.comments.mapStateToProps(comment => (<CommentItem key={comment._id} comment={comment} postId={post._id} />))}
+    </div>
   </Fragment>
 };
 
