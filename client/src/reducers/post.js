@@ -1,5 +1,6 @@
 import {
   GET_POSTS,
+  GET_POST,
   POST_ERROR,
   UPDATE_LIKES,
   DELETE_POST,
@@ -23,6 +24,12 @@ const postReducer = (state = initialState, action) => {
         posts: payload,
         loading: false,
       };
+    case GET_POST: 
+      return {
+        ...state,
+        post: payload,
+        loading: false
+      }
     case ADD_POST:
       console.log('payload',payload)
       console.log(...state.posts)
