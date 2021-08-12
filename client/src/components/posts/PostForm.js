@@ -3,18 +3,21 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addPost } from '../../actions/post';
 
-const PostForm = (props) => {
+const PostForm = ({ addPost }) => {
   const [text, setText] = useState('');
+
   return (
     <div class='post-form'>
       <div class='bg-primary p'>
         <h3>Say Something...</h3>
       </div>
-      <form class='form my-1' onSubmit={e => {
-        e.preventDefault();
-        addPost(text)
-        setText('')
-      }}>
+      <form
+        class='form my-1'
+        onSubmit={(e) => {
+          e.preventDefault();
+          addPost({ text });
+          setText('');
+        }}>
         <textarea
           name='text'
           cols='30'

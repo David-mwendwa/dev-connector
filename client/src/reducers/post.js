@@ -24,9 +24,11 @@ const postReducer = (state = initialState, action) => {
         loading: false,
       };
     case ADD_POST:
+      console.log('payload',payload)
+      console.log(...state.posts)
       return {
         ...state,
-        posts: [payload, ...state.posts],
+        posts: [...state.posts, payload],
         loading: false,
       };
     case DELETE_POST:

@@ -1,5 +1,11 @@
 import axios from 'axios';
-import { ADD_POST, DELETE_POST, GET_POSTS, POST_ERROR, UPDATE_LIKES } from './types';
+import {
+  ADD_POST,
+  DELETE_POST,
+  GET_POSTS,
+  POST_ERROR,
+  UPDATE_LIKES,
+} from './types';
 import { setAlert } from './alert';
 
 export const getPosts = () => async (dispatch) => {
@@ -25,7 +31,7 @@ export const addLike = (postId) => async (dispatch) => {
 
     dispatch({
       type: UPDATE_LIKES,
-      payload: {postId, likes: res.data},
+      payload: { postId, likes: res.data },
     });
   } catch (err) {
     dispatch({
@@ -42,7 +48,7 @@ export const removeLike = (postId) => async (dispatch) => {
 
     dispatch({
       type: UPDATE_LIKES,
-      payload: {postId, likes: res.data},
+      payload: { postId, likes: res.data },
     });
   } catch (err) {
     dispatch({
@@ -55,13 +61,13 @@ export const removeLike = (postId) => async (dispatch) => {
 // Delete Post
 export const deletePost = (postId) => async (dispatch) => {
   try {
-    const res = await axios.delete(`/api/posts/${postId}`);
+    await axios.delete(`/api/posts/${postId}`);
 
     dispatch({
       type: DELETE_POST,
       payload: postId,
     });
-    dispatch(setAlert('Post Removed', 'success'))
+    dispatch(setAlert('Post Removed', 'success'));
   } catch (err) {
     dispatch({
       type: POST_ERROR,
@@ -71,20 +77,21 @@ export const deletePost = (postId) => async (dispatch) => {
 };
 
 // Add Post
-export const addPost = (formDate) => async (dispatch) => {
+export const addPost = (formData) => async (dispatch) => {
   const config = {
     headers: {
-      "Content-Type": "application/json"
-    }
-  }
+      'Content-Type': 'application/json',
+    },
+  };
   try {
-    const res = await axios.post(`/api/posts`, formDate, config);
+    const res = await axios.post('/api/posts', formData, config);
+    console.log('resdata', res.data);
 
     dispatch({
       type: ADD_POST,
       payload: res.data,
     });
-    dispatch(setAlert('Post Created', 'success'))
+    dispatch(setAlert('Post Created', 'success'));
   } catch (err) {
     dispatch({
       type: POST_ERROR,
@@ -92,4 +99,3 @@ export const addPost = (formDate) => async (dispatch) => {
     });
   }
 };
-
